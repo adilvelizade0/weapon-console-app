@@ -39,7 +39,7 @@ namespace Class_Work_1.Models
         { 
             if (InMagazineBullet != 0)
             {
-                InMagazineBullet = InMagazineBullet - 1; 
+                InMagazineBullet -= 1; 
             }
             else
             {
@@ -65,7 +65,7 @@ namespace Class_Work_1.Models
             {
                 if (InMagazineBullet != 0)
                 {
-                    InMagazineBullet = InMagazineBullet - 1;
+                    InMagazineBullet -= 1;
                 }
                 else
                 {
@@ -116,18 +116,14 @@ namespace Class_Work_1.Models
         {
             TryAgainForMagazineSize:
             MagazineSize = ReadLineInt("Maqazinin ölçüsünü daxil edin");
-            if (_magazineSize < 0)
+            switch (_magazineSize)
             {
-                AlertMessage(4);
-                goto TryAgainForMagazineSize;
-            }
-            else
-            {
-                if ( _magazineSize == 0)
-                {
+                case < 0:
+                    AlertMessage(4);
+                    goto TryAgainForMagazineSize;
+                case 0:
                     AlertMessage(2);
                     goto TryAgainForMagazineSize;
-                }
             }
         }
 
